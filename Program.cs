@@ -61,21 +61,21 @@ namespace linkedlListExample
             void FindFlight(int flightId)
             {
                 Flight index = head;
-                bool bulunduMu = false;
+                bool isFind = false;
                 while (index != null)
                 {
                     if (index.flightId == flightId)
                     {
-                        Console.WriteLine("Uçuş "+index.route.start.name+" - "+index.route.start.next.name+ " yönündedir.");
-                        bulunduMu = true;
+                        Console.WriteLine("The flight is in the direction of " + index.route.start.name + " - " + index.route.start.next.name + ".");
+                        isFind = true;
                         break;
                     }
                     index = index.next;
                 }
 
-                if (bulunduMu == false)
+                if (isFind == false)
                 {
-                    Console.WriteLine("Aradığınız uçuş bulunamadı.");
+                    Console.WriteLine("The flight you searched for could not be found.");
                 }
             }
             
