@@ -1,0 +1,6 @@
+/Users/selahattindemircin/RiderProjects/Veri Yapıları Çalışmaları/linkedlListExample/bin/Debug/linkedlListExample.exe
+/Users/selahattindemircin/RiderProjects/Veri Yapıları Çalışmaları/linkedlListExample/bin/Debug/linkedlListExample.pdb
+/Users/selahattindemircin/RiderProjects/Veri Yapıları Çalışmaları/linkedlListExample/obj/Debug/linkedlListExample.csproj.AssemblyReference.cache
+/Users/selahattindemircin/RiderProjects/Veri Yapıları Çalışmaları/linkedlListExample/obj/Debug/linkedlListExample.csproj.CoreCompileInputs.cache
+/Users/selahattindemircin/RiderProjects/Veri Yapıları Çalışmaları/linkedlListExample/obj/Debug/linkedlListExample.exe
+/Users/selahattindemircin/RiderProjects/Veri Yapıları Çalışmaları/linkedlListExample/obj/Debug/linkedlListExample.pdb
