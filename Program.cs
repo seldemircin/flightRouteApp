@@ -7,63 +7,66 @@ namespace linkedlListExample
     {
         public static void Main(string[] args)
         {
-            Ucus head = null;
-            Ucus tail = null;
+            Flight head = null;
+            Flight tail = null;
             
-            Yolcu[] yolcular = new Yolcu[2];
-            yolcular[0] = new Yolcu { name = "Selahattin" , surname = "Demirçin",koltukNo = 1};
-            yolcular[1] = new Yolcu { name = "Alper", surname = "Ateş" , koltukNo = 2};
+            Passenger[] passengers = new Passenger[2];
+            passengers[0] = new Passenger { name = "Selahattin" , surname = "Demirçin",chairId = 1};
+            passengers[1] = new Passenger { name = "Alper", surname = "Ateş" , chairId = 2};
 
-            void UcusEkle(string nereden,string nereye,int ucusNo,Yolcu[] yolcus)
+            void AddFlight(string from,string to,int flightNo,Passenger[] _passengers)
             {
                 if (head != null)
                 {
-                    Ucus ucus = new Ucus();
-                    ucus.ucusNo = ucusNo;
-                    ucus.rota = new Rota
+                    Flight flight = new Flight();
+                    flight.flightId = flightNo;
+                    flight.route = new Route
                     {
-                        baslangic = new Sehir
+                        start = new City
                         {
-                            name  = nereden,next = new Sehir
+                            name  = from,next = new City
                             {
-                                name = nereye
+                                name = to
                             }
-                        },yolcular = yolcus
+                        },passengers = _passengers
                     };
 
-                    tail.next = ucus;
-                    ucus.prev = tail;
+                    if (tail != null)
+                    {
+                        tail.next = flight;
+                    }
+                    flight.prev = tail;
 
-                    tail = ucus;
+                    tail = flight;
                 }
                 else
                 {
-                    Ucus ucus = new Ucus();
-                    ucus.ucusNo = ucusNo;
-                    ucus.rota = new Rota
+                    Flight flight = new Flight();
+                    flight.flightId = flightNo;
+                    flight.route = new Route
                     {
-                        baslangic = new Sehir
+                        start = new City
                         {
-                            name  = nereden,next = new Sehir
+                            name  = from,next = new City
                             {
-                                name = nereye
+                                name = to
                             }
-                        },yolcular = yolcus
+                        },passengers = _passengers
                     };
 
-                    head = ucus;
-                    tail = ucus;
+                    head = flight;
+                    tail = flight;
                 }
             }
-            void UcusAra(int ucusNo)
+            void FindFlight(int flightId)
             {
-                Ucus index = head;
+                Flight index = head;
                 bool bulunduMu = false;
                 while (index != null)
                 {
-                    if (index.ucusNo == ucusNo)
+                    if (index.flightId == flightId)
                     {
-                        Console.WriteLine("Uçuş "+index.rota.baslangic.name+" - "+index.rota.baslangic.next.name+ " yönündedir.");
+                        Console.WriteLine("Uçuş "+index.route.start.name+" - "+index.route.start.next.name+ " yönündedir.");
                         bulunduMu = true;
                         break;
                     }
@@ -76,40 +79,40 @@ namespace linkedlListExample
                 }
             }
             
-            UcusEkle("Ankara","İstanbul",10,yolcular);
-            UcusEkle("İzmir","Muğla",20,yolcular);
-            UcusEkle("Antalya","Erzurum",30,yolcular);
-            UcusEkle("Batman","Trabzon",40,yolcular);
-            UcusEkle("Konya","Adana",50,yolcular);
+            AddFlight("Ankara","İstanbul",10,passengers);
+            AddFlight("İzmir","Muğla",20,passengers);
+            AddFlight("Antalya","Erzurum",30,passengers);
+            AddFlight("Batman","Trabzon",40,passengers);
+            AddFlight("Konya","Adana",50,passengers);
 
-            UcusAra(40);
+            FindFlight(10);
         }
     }
 
-    class Ucus
+    class Flight
     {
-        public int ucusNo { get; set; }
-        public Ucus next { get; set; }
-        public Ucus prev { get; set; }
-        public Rota rota { get; set; }
+        public int flightId { get; set; }
+        public Flight next { get; set; }
+        public Flight prev { get; set; }
+        public Route route { get; set; }
     }
 
-    class Rota
+    class Route
     {
-        public Yolcu[] yolcular { get; set; }
-        public Sehir baslangic { get; set; }
+        public Passenger[] passengers { get; set; }
+        public City start { get; set; }
     }
 
-    class Yolcu
+    class Passenger
     {
         public string name { get; set; }
         public string surname { get; set; }
-        public int koltukNo { get; set; }
+        public int chairId { get; set; }
     }
 
-    class Sehir
+    class City
     {
         public string name { get; set; }
-        public Sehir next { get; set; }
+        public City next { get; set; }
     }
 }
