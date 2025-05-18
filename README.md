@@ -1,0 +1,1 @@
+This application works with nested linked lists, each flight has a flight number after determining where a flight is from and to. According to the flight number, it is possible to find out where the flight is from and to, as well as to access the passengers on the flight, and it is also possible to add new passengers to the relevant flight.
